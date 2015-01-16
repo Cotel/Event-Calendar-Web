@@ -1,16 +1,11 @@
 <?php 
-$conexion = mysql_connect("localhost","root","")
+$conexion = mysql_connect("host","username","password")
 			or die ("Problema al conectar");
 
-			mysql_select_db("citas",$conexion)
+			mysql_select_db("database",$conexion)
 			or die("Problema al seleccionar una base de datos");
 
-			$registro=mysql_query("INSERT INTO clientes (Telefono,Nombre) VALUES (
-				$_REQUEST[telf],'$_REQUEST[nombre]')");
-
-
-			// echo "INSERT INTO clientes (Telefono,Nombre) VALUES ($_REQUEST[telf],'$_REQUEST[nombre]')";
-			// echo "Exito!";
+			$registro=mysql_query("INSERT INTO x (...) VALUES (...)");
 
 			header('Location: index.php');
 

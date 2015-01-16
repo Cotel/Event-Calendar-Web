@@ -1,10 +1,11 @@
 <?php
-include 'auth.php'; 
-if(!userIsAuth()){
-	header('Location: login.php');
-}
 
- ?>
+session_start();
+if(!isset($_COOKIE['sesion'])){
+	header("Location:main_login.php");
+}
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,10 @@ if(!userIsAuth()){
 </head>
 <body class="container">
 <!-- <div class="main"> -->
+	<div class="navbar">
+		<a href="logout.php" style="float:right;" class="btn btn-danger">Cerrar Sesion</a>
+	</div>
+
 	<?php 
 	include 'calendar.php';
 
@@ -41,20 +46,20 @@ if(!userIsAuth()){
 		<?php
 		include 'evento.php';
 
-		$conexion = mysql_connect("localhost","root","")
+		$conexion = mysql_connect("host","username","password")
 			or die("Problema en la conexion");
 
-		mysql_select_db("citas",$conexion)
+		mysql_select_db("database",$conexion)
 			or die("Problema en la seleccion");			
 
-		$registros = mysql_query("select ID,Titulo,Dia,Hora,Cliente,Servicio from agenda")
+		$registros = mysql_query("select ...")
 			or die("Problema en el select: ").mysql_error();
 		
 		$citas;
 		while ($reg=mysql_fetch_array($registros)){
-			$serv = mysql_query("select Nombre_Servicio from servicios where Servicio =".$reg['Servicio'].";")
+			$serv = mysql_query("select ... from table where x ='$y';")
 				or die("Problema en el select: ".mysql_error());
-			$clien = mysql_query("select Nombre from clientes where Telefono =".$reg['Cliente'].";")
+			$clien = mysql_query("select ... from table where x ='$y';")
 				or die("Problema en el select: ".mysql_error());
 			$aux = mysql_fetch_assoc($serv);
 			$aux1 = mysql_fetch_assoc($clien);
@@ -75,6 +80,7 @@ if(!userIsAuth()){
 		<p style="float:right;"><button type="button" class="btn btn-default" data-toggle="modal" href="#nuevaCita">Agregar nueva cita</button></p>
 		<p style="float:left;"><a class="btn btn-default" data-toggle="modal" data-target="#nuevoCliente">Agregar nuevo cliente</a></p>				
 	</div>
+	
 <!-- Modal Nueva Cita -->
 <div class="modal fade" id="nuevaCita" tabindex="-1" role="dialog" aria-labelledby="nuevaCitaLabel" aria-hidden="true">
   <div class="modal-dialog">

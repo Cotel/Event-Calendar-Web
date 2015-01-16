@@ -1,6 +1,6 @@
 /*############################## General ############################*/
 body{
-    background-color: #B4B4CD !important;
+    /*background-color: #B4B4CD !important;*/
 }
 
 
@@ -160,6 +160,6 @@ table{
     border: 1px solid black;
 }
 
-.right,{
+.right{
     float: right;
 }
