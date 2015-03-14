@@ -22,7 +22,7 @@ class Evento{
 
 	public function show(){
 		// var $dia = isset($_GET['day']);
-		$content = '<tr class="active">'.
+		$content = '<tr id="evento" class="active">'.
 						'<td>'.$this->titulo.'</td>'.
 						'<td>'.$this->fecha.'</td>'.
 						'<td>'.$this->hora.'</td>'.

@@ -1,8 +1,8 @@
 <?php
 
 // ob_start();
-$conn = mysql_connect("host","username","password") or die("Fallo al conectar");
-		mysql_select_db("database") or die("Fallo al seleccionar base de datos");
+$conn = mysql_connect("localhost","root","") or die("Fallo al conectar");
+		mysql_select_db("citas") or die("Fallo al seleccionar base de datos");
 
 $myusername=$_POST['myusername'];
 // echo $myusername;
@@ -17,7 +17,7 @@ $mypassword = mysql_real_escape_string($mypassword);
 // echo var_dump($myusername);
 
 $sql = "SELECT * FROM members WHERE username=('$myusername') and password=('$mypassword')";
-// echo $sql;
+ echo $sql;
 $result = mysql_query($sql);
 
 
