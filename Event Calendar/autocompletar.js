@@ -1,3 +1,5 @@
+var ultimoDia;
+
 function nuevoAjax()
 {
 	/* Crea el objeto AJAX. Esta funcion es generica para cualquier utilidad de este tipo, por
@@ -28,8 +30,13 @@ function cerrarPop(){
 	});
 }
 
+function getDia(){
+	document.getElementById("fecha").value = ultimoDia;
+}
+
 function mostrarCitas(dia){
 	var ajax = nuevoAjax();
+	ultimoDia = dia;
 	var params = "?fech='"+dia+"'";
 	ajax.open("GET","mostrarCita.php"+params,true);
 	ajax.send();
