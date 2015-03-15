@@ -145,8 +145,10 @@ if(!isset($_COOKIE['sesion'])){
 	<form action="mostrarCita.php" method="post" class="hide">
 	</form>
 	<div id="resultados">
-
+	
 	</div>
+	<hr>
+	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" onClick="getDia()" href="#nuevaCita">+</button>
 </div>
 
 <!-- Modal Nuevo Cliente-->
